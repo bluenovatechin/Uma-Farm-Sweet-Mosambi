@@ -1,89 +1,56 @@
 # Uma Farm Sweet Mosambi
 
-Official website and digital presence for **Uma Farm Sweet Mosambi**, an authentic agricultural orchard specializing in naturally grown sweet limes (*Citrus limetta*) located in Shakti Nagar, Sabarkantha District, Gujarat, India.
+Website for **Uma Farm Sweet Mosambi**, a family-run sweet lime (mosambi) orchard at Adalpura, Dhansura, Aravalli district, Gujarat 383310.
 
-- **Repository**: [https://github.com/bluenovatechin/Uma-Farm-Sweet-Mosambi](https://github.com/bluenovatechin/Uma-Farm-Sweet-Mosambi)
-- **Live Website**: [https://bluenovatechin.github.io/Uma-Farm-Sweet-Mosambi/](https://bluenovatechin.github.io/Uma-Farm-Sweet-Mosambi/)
-- **Instagram**: [@uma_farm_sweet_mosambi](https://www.instagram.com/uma_farm_sweet_mosambi?utm_source=ig_web_button_share_sheet&srtk=ZDNlZDc0MzIxNw==)
-- **Facebook**: [Uma Farm on Facebook](https://www.facebook.com/share/1DopFHcSrP/)
-- **Direct Phone / WhatsApp**: `+91 94260 40220`
+- Live site: https://www.umafarm.com/
+- Phone / WhatsApp: +91 94260 40220
+- Map: https://maps.app.goo.gl/2VBfWCgWzmzpPiWw8
 
----
+Contribution of [Vyom1912](https://github.com/Vyom1912) on GitHub.
 
-## Orchard & Agricultural Overview
+## Folder structure
 
-- **Location**: Shakti Nagar, near Gujarat State Highway, Sabarkantha District, Gujarat (PIN: 383310).
-- **Cultivation**: 100% natural, on-tree ripened sweet lime (mosambi).
-- **Irrigation**: Deep drip irrigation system delivering root-zone hydration.
-- **Spacing**: 20×20 feet grid layout for 360-degree sunlight penetration and cross-ventilation.
-- **Harvest Method**: Hand-picked at dawn using sanitized tools to preserve peel freshness and moisture content.
-- **Wholesale Supply**: Direct supply to APMC mandis, commercial juice chains, fruit retail vendors, and farm-gate bulk buyers.
-
----
-
-## Features & Implementation
-
-1. **Mobile-First Responsive Layout**: Optimized for smartphones, tablets, and desktops with touch targets >= 48px and a fixed mobile quick-action bar for instant calling and WhatsApp orders.
-2. **Direct WhatsApp Inquiry Dispatch**: Wholesale form validates buyer requirements (name, quantity, city, phone) and directly launches WhatsApp with pre-formatted inquiry text to `+91 94260 40220`.
-3. **High-Contrast Design System**: Built with accessible agricultural color tokens (`#255D32` leaf green, `#14281A` high-contrast ink, `#F6F8F2` warm background) meeting WCAG AA standards.
-4. **Comprehensive SEO & Schema Markup**:
-   - `schema.org` JSON-LD Structured Data: `LocalBusiness`, `Farm`, `Product`, and `FAQPage`.
-   - Geographic metadata tags for Gujarat local search rankings.
-   - Comprehensive keywords for location, place, naturality, selling, and mandi wholesale rates.
-5. **Asset Optimization**:
-   - Multi-resolution favicons (`favicon.ico`, `favicon-32x32.png`, `favicon-16x16.png`, `apple-touch-icon.png`).
-   - OpenGraph 1200×630 social preview card (`og-image.jpg`).
-   - WebP image compression reducing payload while retaining authentic photograph detail.
-6. **Compliance & Legal Pages**:
-   - Privacy Policy (`privacy.html`)
-   - Terms and Conditions (`terms.html`)
-   - Custom 404 Error Page (`404.html`)
-   - XML Sitemap (`sitemap.xml`) & Search Engine Crawler Directives (`robots.txt`)
-7. **Security & Anti-Bot Protection**:
-   - Content Security Policy (CSP) upgrade directives.
-   - Form honeypot trap and timestamp threshold validation to prevent automated spam.
-
----
-
-## File Structure
+Everything in this folder is uploaded to Hostinger's `public_html`.
 
 ```text
-Uma-Farm-Sweet-Mosambi/
-├── index.html              # Main homepage with mobile-first CSS & schema markup
-├── privacy.html            # Privacy Policy
-├── terms.html              # Terms & Conditions
-├── 404.html                # Custom 404 Page
-├── robots.txt              # Search engine crawler instructions
-├── sitemap.xml             # XML sitemap for search engines
-├── logo.jpg                # Farm emblem
-├── og-image.jpg            # 1200x630 Social preview card
-├── favicon.ico             # Multi-size website icon
-├── favicon-32x32.png       # 32x32 PNG favicon
-├── favicon-16x16.png       # 16x16 PNG favicon
-├── apple-touch-icon.png    # 180x180 iOS touch icon
-├── cut-mosambi-opt.webp    # Web-optimized slice photograph
-├── mosambi-opt.webp        # Web-optimized whole fruit photograph
-├── tree-opt.webp           # Web-optimized orchard view
-├── tree2-opt.webp          # Web-optimized tree canopy photograph
-└── README.md               # Repository documentation
+public_html/
+├── index.html                       Home            https://www.umafarm.com/
+├── about/index.html                 About           /about/
+├── sweet-mosambi/index.html         Our mosambi     /sweet-mosambi/
+├── wholesale/index.html             Wholesale       /wholesale/
+├── faq/index.html                   FAQ             /faq/
+├── contact/index.html               Contact + form  /contact/
+├── privacy-policy/index.html        Privacy Policy  /privacy-policy/
+├── terms-and-conditions/index.html  Terms           /terms-and-conditions/
+├── 404.html                         Custom "page not found"
+├── .htaccess                        HTTPS + www redirect, security headers, caching, compression
+├── robots.txt                       Crawler rules (search engines and AI assistants allowed)
+├── sitemap.xml                      Page and image sitemap
+├── llms.txt                         Plain summary of the farm for AI assistants
+├── site.webmanifest                 App name, colours and icons
+├── favicon.ico, favicon-16x16.png, favicon-32x32.png, apple-touch-icon.png, icon-192.png, icon-512.png
+├── assets/
+│   ├── css/style.css                All styles
+│   ├── js/main.js                   Menu, form validation, analytics with consent
+│   └── images/                      Optimised AVIF + WebP photos, logo, social preview image
+└── _source/                         Original full-size photos (blocked from the public by .htaccess)
 ```
 
----
+## Deploying on Hostinger
 
-## Local Development
+1. In hPanel open **File Manager > public_html** (or use Git deployment into `public_html`).
+2. Upload all files and folders from this repository, including the hidden `.htaccess` file.
+3. In hPanel, turn on the free SSL certificate for `umafarm.com` and `www.umafarm.com`.
+4. Visit `http://umafarm.com` and check that it redirects to `https://www.umafarm.com/`.
+5. In Google Search Console, add `https://www.umafarm.com/` and submit `https://www.umafarm.com/sitemap.xml`.
 
-Open `index.html` directly in any modern browser, or run a lightweight local server:
+## Settings to fill in
 
-```bash
-# Using Python
-python -m http.server 8000
+- **Google Analytics:** put your GA4 Measurement ID (`G-XXXXXXXXXX`) in `GA_MEASUREMENT_ID` at the top of `assets/js/main.js`. The cookie consent banner and analytics turn on only when this is set, and analytics loads only after a visitor clicks "Allow analytics".
+- **Google reviews:** paste real review text into the reviews section of `index.html` (look for the `REVIEWS` comment).
 
-# Using Node.js
-npx serve .
-```
+## Editing
 
----
-
-## Contribution
-
-Maintained and contributed by **[Vyom1912](https://github.com/Vyom1912)**.
+- After changing `style.css` or `main.js`, increase the `?v=` number in the `<link>` and `<script>` tags of every page so browsers fetch the new file.
+- Use AVIF or WebP images with descriptive file names and fill in the `alt` text.
+- Keep the address, phone and hours the same everywhere: on the pages, in the JSON-LD block in each page's `<head>`, and in `llms.txt`.
