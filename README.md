@@ -6,7 +6,7 @@ Website for **Uma Farm Sweet Mosambi**, a family-run sweet lime (mosambi) orchar
 - Phone / WhatsApp: +91 94260 40220
 - Map: https://maps.app.goo.gl/2VBfWCgWzmzpPiWw8
 
-Contribution of [Vyom1912](https://github.com/Vyom1912) on GitHub.
+Created by [BlueNova Tech PVT Limited](https://bluenovatech.in/).
 
 ## Folder structure
 
