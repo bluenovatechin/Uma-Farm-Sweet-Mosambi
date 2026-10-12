@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bluenovatechin.github.io/Uma-Farm-Sweet-Mosambi/sitemap.xml
