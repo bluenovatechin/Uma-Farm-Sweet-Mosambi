@@ -1,6 +1,6 @@
 # Uma Farm Sweet Mosambi
 
-Website for **Uma Farm Sweet Mosambi**, a family-run sweet lime (mosambi) orchard at Adalpura Kampa, Dhansura (Dhanusha), Aravalli district, Gujarat 383310.
+Website for **Uma Farm Sweet Mosambi**, a family-run sweet lime (mosambi) orchard at Adalpura Kampa, Dhansura, Aravalli district, Gujarat 383310.
 
 - Live site: https://www.umafarm.com/
 - Phone / WhatsApp: +91 94260 40220
