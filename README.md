@@ -1,56 +1,110 @@
-# Uma Farm Sweet Mosambi
+# Uma Farm Sweet Mosambi (React + Vite)
 
-Website for **Uma Farm Sweet Mosambi**, a family-run sweet lime (mosambi) orchard at Adalpura Kampa, Dhansura, Aravalli district, Gujarat 383310.
+Modern, fast, SEO-optimized React + Vite website for **Uma Farm Sweet Mosambi**, a family-run sweet lime (mosambi) orchard at Adalpura Kampa, Dhansura, Aravalli district, Gujarat 383310.
 
 - Live site: https://www.umafarm.com/
 - Phone / WhatsApp: +91 94260 40220
 - Map: https://maps.app.goo.gl/2VBfWCgWzmzpPiWw8
+- Created by [BlueNova Tech PVT Limited](https://bluenovatech.in/).
 
-Created by [BlueNova Tech PVT Limited](https://bluenovatech.in/).
+---
 
-## Folder structure
+## Architecture & Features
 
-Everything in this folder is uploaded to Hostinger's `public_html`.
+- **Framework**: React 19 + Vite 6
+- **Routing**: `react-router-dom` with client-side SPA routing + static pre-rendering
+- **SEO & Social**: Pre-rendered static HTML with dynamic `react-helmet-async` tags (Title, Meta Description, Open Graph, Twitter Cards, Canonical URLs, and JSON-LD Schema on every page)
+- **Hostinger Ready**: Built for Hostinger hPanel Apache/LiteSpeed with full `.htaccess` configuration, HTTPS redirects, security headers, caching, and PHP API support (`api/contact.php`)
+- **Accessibility & Performance**: Semantic HTML5, accessible SVG icons, mobile navigation drawer, skip-links, and high-performance WebP/AVIF responsive images
+
+---
+
+## Project Structure
 
 ```text
-public_html/
-├── index.html                       Home            https://www.umafarm.com/
-├── about/index.html                 About           /about/
-├── sweet-mosambi/index.html         Our mosambi     /sweet-mosambi/
-├── wholesale/index.html             Wholesale       /wholesale/
-├── faq/index.html                   FAQ             /faq/
-├── contact/index.html               Contact + form  /contact/
-├── privacy-policy/index.html        Privacy Policy  /privacy-policy/
-├── terms-and-conditions/index.html  Terms           /terms-and-conditions/
-├── 404.html                         Custom "page not found"
-├── .htaccess                        HTTPS + www redirect, security headers, caching, compression
-├── robots.txt                       Crawler rules (search engines and AI assistants allowed)
-├── sitemap.xml                      Page and image sitemap
-├── llms.txt                         Plain summary of the farm for AI assistants
-├── site.webmanifest                 App name, colours and icons
-├── favicon.ico, favicon-16x16.png, favicon-32x32.png, apple-touch-icon.png, icon-192.png, icon-512.png
-├── assets/
-│   ├── css/style.css                All styles
-│   ├── js/main.js                   Menu, form validation, analytics with consent
-│   └── images/                      Optimised AVIF + WebP photos, logo, social preview image
-└── _source/                         Original full-size photos (blocked from the public by .htaccess)
+Uma Farm/
+├── public/                          Static files copied directly to dist/ on build
+│   ├── .htaccess                    Apache/LiteSpeed redirect, security, & cache rules
+│   ├── api/contact.php              Hostinger PHP wholesale inquiry endpoint
+│   ├── robots.txt                   Search engine and AI crawler directives
+│   ├── sitemap.xml                  XML sitemap with image metadata
+│   ├── llms.txt                     Summary for AI assistants
+│   ├── site.webmanifest             PWA manifest and color configuration
+│   ├── favicon.ico, icons...        Favicons & touch icons
+│   └── assets/images/               Optimized WebP/AVIF images
+├── src/
+│   ├── assets/css/style.css         Core styling & theme tokens
+│   ├── components/
+│   │   ├── Header.jsx               Site header, branding & mobile drawer navigation
+│   │   ├── Footer.jsx               Footer links, address, & copyright
+│   │   ├── Seo.jsx                  SEO management with Helmet
+│   │   ├── Icon.jsx & IconSprite.jsx SVG icons
+│   │   ├── CtaBand.jsx              WhatsApp quote banner
+│   │   ├── QuickBar.jsx             Mobile bottom action bar (Call / WhatsApp)
+│   │   ├── CookieBanner.jsx         Cookie consent & Google Analytics handler
+│   │   ├── InquiryForm.jsx          Wholesale inquiry form with WhatsApp & PHP fallback
+│   │   ├── OrchardPlan.jsx          Vector 20x20 ft orchard layout diagram
+│   │   └── FaqItem.jsx              Collapsible FAQ items
+│   ├── pages/
+│   │   ├── HomePage.jsx             Home (/)
+│   │   ├── AboutPage.jsx            About (/about/)
+│   │   ├── SweetMosambiPage.jsx     Our Mosambi (/sweet-mosambi/)
+│   │   ├── WholesalePage.jsx        Wholesale (/wholesale/)
+│   │   ├── FaqPage.jsx              FAQ (/faq/)
+│   │   ├── ContactPage.jsx          Contact (/contact/)
+│   │   ├── PrivacyPolicyPage.jsx    Privacy Policy (/privacy-policy/)
+│   │   ├── TermsAndConditionsPage.jsx Terms (/terms-and-conditions/)
+│   │   └── NotFoundPage.jsx         404 Page (/404.html)
+│   ├── data/seoData.js              Metadata and JSON-LD schemas for all pages
+│   ├── App.jsx                      App layout and route definitions
+│   ├── main.jsx                     Client entry point (supports hydration)
+│   └── entry-server.jsx             SSR entry for static pre-rendering
+├── scripts/
+│   └── prerender.js                 Generates static HTML files for all routes during build
+├── _legacy_html/                    Backup copy of original static HTML files
+├── package.json
+└── vite.config.js
 ```
 
-## Deploying on Hostinger
+---
 
-1. In hPanel open **File Manager > public_html** (or use Git deployment into `public_html`).
-2. Upload all files and folders from this repository, including the hidden `.htaccess` file.
-3. In hPanel, turn on the free SSL certificate for `umafarm.com` and `www.umafarm.com`.
-4. Visit `http://umafarm.com` and check that it redirects to `https://www.umafarm.com/`.
-5. In Google Search Console, add `https://www.umafarm.com/` and submit `https://www.umafarm.com/sitemap.xml`.
+## Local Development
 
-## Settings to fill in
+1. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+2. **Start development server**:
+   ```bash
+   npm run dev
+   ```
+   Open `http://localhost:3000` in your browser.
 
-- **Google Analytics:** put your GA4 Measurement ID (`G-XXXXXXXXXX`) in `GA_MEASUREMENT_ID` at the top of `assets/js/main.js`. The cookie consent banner and analytics turn on only when this is set, and analytics loads only after a visitor clicks "Allow analytics".
-- **Google reviews:** paste real review text into the reviews section of `index.html` (look for the `REVIEWS` comment).
+---
 
-## Editing
+## Production Build & Static Pre-rendering
 
-- After changing `style.css` or `main.js`, increase the `?v=` number in the `<link>` and `<script>` tags of every page so browsers fetch the new file.
-- Use AVIF or WebP images with descriptive file names and fill in the `alt` text.
-- Keep the address, phone and hours the same everywhere: on the pages, in the JSON-LD block in each page's `<head>`, and in `llms.txt`.
+To compile the application and pre-render all static HTML pages:
+
+```bash
+npm run build
+```
+
+This runs:
+1. `vite build` - Builds the client bundle into `dist/`.
+2. `vite build --ssr` - Compiles the server entry point.
+3. `node scripts/prerender.js` - Pre-renders every route (`/`, `/about/`, `/sweet-mosambi/`, `/wholesale/`, `/faq/`, `/contact/`, `/privacy-policy/`, `/terms-and-conditions/`, `/404.html`) into static HTML with full SEO tags, Open Graph, and JSON-LD schema.
+
+---
+
+## Deploying on Hostinger hPanel
+
+1. Run `npm run build` locally.
+2. In Hostinger **hPanel**, go to **File Manager** > **public_html**.
+3. Upload all contents of the `dist/` folder directly into `public_html` (including the `.htaccess` file).
+4. Verify your SSL certificate is enabled for `umafarm.com` and `www.umafarm.com`.
+5. Testing:
+   - Visit `https://www.umafarm.com/` - check home page.
+   - Click navigation links - smooth client routing.
+   - Refresh `/about/` or `/wholesale/` - loads the pre-rendered HTML without 404s.
+   - Fill out the inquiry form - opens WhatsApp and optionally posts to `api/contact.php`.

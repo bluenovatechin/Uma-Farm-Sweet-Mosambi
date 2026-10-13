@@ -1,0 +1,36 @@
+{
+  "name": "uma-farm",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Website for Uma Farm Sweet Mosambi, a family-run sweet lime (mosambi) orchard at Adalpura Kampa, Dhansura, Aravalli district, Gujarat 383310.",
+  "scripts": {
+    "dev": "vite",
+    "build:client": "vite build",
+    "build:server": "vite build --ssr src/entry-server.jsx --outDir dist-ssr",
+    "build": "vite build && vite build --ssr src/entry-server.jsx --outDir dist-ssr && node scripts/prerender.js",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluenovatechin/Uma-Farm-Sweet-Mosambi.git"
+  },
+  "keywords": [
+    "uma-farm",
+    "sweet-mosambi",
+    "mosambi",
+    "dhansura",
+    "gujarat"
+  ],
+  "author": "BlueNova Tech PVT Limited",
+  "license": "ISC",
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.2",
+    "vite": "^8.3.4"
+  },
+  "dependencies": {
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "react-helmet-async": "^3.0.0",
+    "react-router-dom": "^7.18.4"
+  }
+}
